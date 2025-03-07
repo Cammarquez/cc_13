@@ -24,6 +24,30 @@ function createEmployeeCard(name, paragraph, position) {// Creates the card cont
     });
     card.appendChild(removeButton); //Uses the appendChild() method to append the removeButton element to the card div element
 
+    const highlightButton = document.createElement('button'); // Create the highlight button
+    highlightButton.textContent = 'Highlight'; //Writes the text content of the highlightButton element to 'Highlight'
+    highlightButton.addEventListener('click', () => { //Adds an event listener to the highlightButton element
+        if (card.style.backgroundColor === 'yellow') { // Check if the background color is yellow
+            card.style.backgroundColor = ''; // Revert to the original state
+        } else {
+            card.style.backgroundColor = 'yellow'; // Change the background color of the card
+        }
+    });
+    card.appendChild(highlightButton); //Uses the appendChild() method to append the highlightButton element to the card div element
+
     const employeeContainer = document.getElementById('employeeContainer');// Append the card to the employee container
     employeeContainer.appendChild(card); //Uses the appendChild() method to append the card div element to the employeeContainer div element
+}
+
+//Task 3
+function highlightAllEmployeeCards() {
+    const employeeCards = document.querySelectorAll('.employeeCard'); // Select all elements with the employee card class
+    const employeeCardsArray = Array.from(employeeCards); // Convert the NodeList into an array
+    employeeCardsArray.forEach((employeeCard) => { // Iterate over each employee card
+        if (employeeCard.style.backgroundColor === 'yellow') { // Check if the background color is yellow
+            employeeCard.style.backgroundColor = ''; // Revert to the original state
+        } else {
+            employeeCard.style.backgroundColor = 'yellow'; // Change the background color of the card
+        }
+    });
 }
